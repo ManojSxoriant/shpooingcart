@@ -41,6 +41,20 @@ export class Product {
     "price": 199,
     "image": "images/headphones.jpg",
     "description": "Noise‑cancelling headphones delivering immersive sound quality and all‑day comfort."
+  },
+   {
+    "id": 5,
+    "name": "Smartwatch",
+    "price": 250,
+    "image": "images/smartwatch.jpg",
+    "description": "Noise‑cancelling headphones delivering immersive sound quality and all‑day comfort."
+  },
+   {
+    "id": 6,
+    "name": "SmartTV",
+    "price": 1000,
+    "image": "images/smarttv.jpg",
+    "description": "Noise‑cancelling headphones delivering immersive sound quality and all‑day comfort."
   }
 ];
 

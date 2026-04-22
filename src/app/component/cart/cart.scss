@@ -1,4 +1,3 @@
-
 .overlay {
   position: fixed;
   inset: 0;
@@ -9,12 +8,14 @@
 }
 
 .modal {
+  padding-left: 15px;
+  width: 380px;
+  height: 100vh;
   background: #fff;
-  width: 360px;
-  height: 100%;
-  padding: 16px;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
 }
+
 
 .modal-header {
   display: flex;
@@ -29,10 +30,10 @@
   cursor: pointer;
 }
 
-
-
-.cart-container {
+.modal-body {
   padding: 16px;
+  overflow-y: auto;
+  flex: 1;
 }
 
 .cart-item {
@@ -40,6 +41,10 @@
   gap: 12px;
   margin-bottom: 12px;
   align-items: center;
+}
+
+.cart-item-info {
+  width: 100% !important;
 }
 
 .cart-image {
@@ -57,8 +62,17 @@
   font-weight: 600;
 }
 
-.price, .qty {
+.price,
+.qty {
   font-size: 0.85rem;
   color: #555;
 }
 
+.remove-btn {
+
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  display: flex;
+  float: right;
+}

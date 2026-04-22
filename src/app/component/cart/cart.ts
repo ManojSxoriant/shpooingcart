@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { selectCartItems } from '../../store/cart.selectors';
+import { Observable, startWith } from 'rxjs';
+import { selectCartItems, selectCartTotal, } from '../../store/cart.selectors';
 import { Products } from '../../models/product.model';
 import { CartState } from '../../store/cart.reducer';
+import { removeFromCart } from '../../store/cart.actions';
+import { CartItem } from '../../models/cart.model';
+import { start } from 'repl';
 
 @Component({
   selector: 'app-cart',
@@ -14,10 +17,16 @@ import { CartState } from '../../store/cart.reducer';
 })
 export class Cart {
   @Output() cartClose = new EventEmitter<void>();
-  cartItems$!:Observable<any>;
+  cartItems$!:Observable<CartItem[]>;
+  cartTotal$!:Observable<number>;
 
   constructor(private store:Store<{cart:CartState}>) {
-    this.cartItems$ = store.select(selectCartItems);
+    this.cartItems$ = store.select(selectCartItems).pipe(startWith([]));
+    this.cartTotal$ = store.select(selectCartTotal).pipe(startWith(0));
+  }
+
+  removeFromCart(productId:number) {
+    this.store.dispatch(removeFromCart({productId}))
   }
 
 
